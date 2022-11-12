@@ -1,0 +1,25 @@
+zzy:
+  shiro:
+    session_timeout: 3600
+    cookie_timeout: 86400
+    anon_url: /api/login,/api/logout,/api/register,/api/user/info/*,\
+      /api/article/list/**,/api/article/*,/api/comment/**,/api/link/**
+    login_url: /login
+    success_url: /system
+    logout_url: /logout
+    cipher_key: zzy
+
+  swagger:
+    base_package: com.zzy.controller
+    title: Zzy Blog Api
+    description: Zzy Blog Api
+    author: Zzy
+    url: https://github.com/Zheng1314237
+    email: zhengzhouyi_2020@qq.com
+    version: v1.0
+
+  qiniu:
+    access_key:
+    secret_key:
+    bucket_name:
+    url:

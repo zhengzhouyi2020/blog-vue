@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: root
+    password: 1027548565ABC
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC& useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: dev
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+mybatis:
+  type-aliases-package: com.zzy.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+mybatis-plus:
+  global-config:
+    banner: false
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: classpath:logs
