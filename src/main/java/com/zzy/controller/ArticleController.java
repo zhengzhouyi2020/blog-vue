@@ -10,6 +10,7 @@ import com.zzy.utils.controller.BaseController;
 import com.zzy.utils.exception.GlobalException;
 import com.zzy.utils.util.QueryPage;
 import com.zzy.utils.util.Result;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(CommonConstant.BASE_API+"/article")
+@Api(value = "ArticleController", tags = {"文章功能接口"})
 public class ArticleController extends BaseController {
 
     @Autowired

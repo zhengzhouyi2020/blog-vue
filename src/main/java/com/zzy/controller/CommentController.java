@@ -10,6 +10,7 @@ import com.zzy.utils.util.*;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping(CommonConstant.BASE_API+"/comment")
+@Api(value = "CommentController", tags = {"评论功能接口"})
 public class CommentController extends BaseController {
     @Autowired
     private CommentService commentService;

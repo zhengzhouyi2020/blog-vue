@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zzy.mapper.ArticleMapper">
-    <select id="findByCategory" resultType="com.zzy.entity.SysArticle"></select>
-    <select id="findByTag" resultType="com.zzy.entity.SysArticle"></select>
+    <select id="findByCategory" resultType="com.zzy.entity.SysArticle">
+        SELECT
+        FROM tbl_article a,
+             tbl_category c,
+             tbl_article_category ac
+        WHERE c.id = #{id}
+          And c.id = ac.category_id
+          And a.id = ac.article_id;
+    </select>
+    <select id="findByTag" resultType="com.zzy.entity.SysArticle">
+        SELECT a.id, a.title, a.author, a.create_time
+        FROM tbl_article a,
+             tbl_tag t,
+             tab_article_tag at
+        WHERE t.id = #{id}
+        AND t.id = at.tag_id
+        AND a.id = at.article_id
+        </select>
 </mapper>

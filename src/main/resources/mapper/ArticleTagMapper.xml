@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzy.mapper.ArticleTagMapper">
+<!--    根据文章id查询-->
+    <select id="findByArticleId" resultType="com.zzy.entity.SysTag">
+        SELECT
+            t.name
+        FROM
+            tbl_tag t,
+            tbl_article_tag at
+        WHERE at.article_id = #{articleId}
+          And at.tag_id = t.id
+    </select>
+</mapper>

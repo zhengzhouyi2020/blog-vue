@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zzy.mapper.TagMapper">
-    <select id="findTagByArticleId" resultType="com.zzy.entity.SysTag"></select>
+    <select id="findTagByArticleId" resultType="com.zzy.entity.SysTag">
+        SELECT * FROM tbl_tag t, tbl_article a, tbl_article_tag at
+        WHERE t.id = at.tag_id AND a.id = at.article_id AND a.id = #{id}
+    </select>
 </mapper>

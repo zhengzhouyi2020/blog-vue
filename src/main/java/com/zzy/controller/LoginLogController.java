@@ -8,6 +8,7 @@ import com.zzy.utils.controller.BaseController;
 import com.zzy.utils.exception.GlobalException;
 import com.zzy.utils.util.QueryPage;
 import com.zzy.utils.util.Result;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(CommonConstant.BASE_API+"/loginlog")
+@Api(value = "LoginLogController", tags = {"登录日志管理接口"})
 public class LoginLogController extends BaseController {
     @Autowired
     private LoginLogService loginLogService;

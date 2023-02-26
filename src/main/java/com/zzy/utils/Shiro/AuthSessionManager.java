@@ -1,7 +1,8 @@
 package com.zzy.utils.Shiro;
 
-import com.alibaba.druid.util.StringUtils;
+
 import com.zzy.utils.constant.CommonConstant;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.util.WebUtils;

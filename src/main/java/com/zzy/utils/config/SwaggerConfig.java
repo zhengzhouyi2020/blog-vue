@@ -18,8 +18,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Author Zzy
  * @Date 2020/12/25
  */
-//@Configuration
-//@EnableSwagger2
+@Configuration
+@EnableSwagger2
 public class SwaggerConfig {
     @Autowired
     private ZzyProperties zzyProperties;

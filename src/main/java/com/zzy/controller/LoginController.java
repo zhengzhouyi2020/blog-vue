@@ -13,6 +13,7 @@ import com.zzy.utils.util.*;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
+import io.swagger.annotations.Api;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping(CommonConstant.BASE_API)
+@Api(value = "LoginController", tags = {"登录接口"})
 public class  LoginController extends BaseController {
 
     @Autowired
@@ -45,14 +47,13 @@ public class  LoginController extends BaseController {
      * @param httpServletRequest
      * @return
      */
-    @PostMapping("/login")
+    @GetMapping("/login")
     public Result login(HttpServletRequest httpServletRequest){
         String username=httpServletRequest.getParameter("username");
         String password=httpServletRequest.getParameter("password");
-        System.out.println(username);
         Subject subject=getSubject();
         String encrypt_password=md5Util.encryptPassword(password);
-        UsernamePasswordToken token=new UsernamePasswordToken();
+        UsernamePasswordToken token=new UsernamePasswordToken(username, encrypt_password);
         try{
             subject.login(token);
             HttpServletRequest request= HttpContextUtil.getHttpServletRequest();

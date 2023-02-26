@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zzy.mapper.CategoryMapper">
-    <select id="findCategoryByArticleId" resultType="com.zzy.entity.SysCategory"></select>
+    <select id="findCategoryByArticleId" parameterType="long" resultType="com.zzy.entity.SysCategory">
+        SELECT c.*
+        FROM
+            tbl_article a,
+            tbl_category c,
+            tbl_article_category ac
+        WHERE
+            a.id = ac.article_id
+        AND  c.id = ac.category_id
+        AND a.id = #{id}
+    </select>
 </mapper>
