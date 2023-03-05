@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @SpringBootConfiguration
-@PropertySource("classpath:zzy.yml")
+@PropertySource("classpath:zzy.properties")
 @ConfigurationProperties(prefix = "zzy")
 @Component
 public class ZzyProperties {

@@ -47,12 +47,13 @@ public class  LoginController extends BaseController {
      * @param httpServletRequest
      * @return
      */
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Result login(HttpServletRequest httpServletRequest){
         String username=httpServletRequest.getParameter("username");
         String password=httpServletRequest.getParameter("password");
         Subject subject=getSubject();
         String encrypt_password=md5Util.encryptPassword(password);
+        System.out.println(encrypt_password);
         UsernamePasswordToken token=new UsernamePasswordToken(username, encrypt_password);
         try{
             subject.login(token);

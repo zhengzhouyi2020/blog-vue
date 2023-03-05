@@ -47,6 +47,14 @@ public class ShiroConfig {
         filterChain.put("/api/comment/**","anon");
         filterChain.put("/api/link/**","anon");
 
+        //放行Swagger2页面，需要放行这些
+        filterChain.put("/swagger-ui.html","anon");
+        filterChain.put("/swagger/**","anon");
+        filterChain.put("/webjars/**", "anon");
+        filterChain.put("/swagger-resources/**","anon");
+        filterChain.put("/v2/**","anon");
+        filterChain.put("/static/**", "anon");
+
         filterChain.put("/**", "user");
         filter.setFilterChainDefinitionMap(filterChain);
         return filter;
